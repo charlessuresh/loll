@@ -118,18 +118,7 @@ docker run --rm -it -p 8888:8888 -v $(pwd):/home/jovyan realtor:1.0 make -C /hom
 # Generate the analysis for Model Return Latency
 docker run --rm -it -p 8888:8888 -v $(pwd):/home/jovyan realtor:1.0 make -C /home/jovyan all_return_latency
 ```
-  - To run the Dashboard, run the following command:
-
-```
-docker run --rm -it -p 8888:8888 -v $(pwd):/home/jovyan realtor:1.0 python dashboard/dashboard.py --model_dir=models/ --test_data_return_frequency_dir=data/model_return_frequency/testing_data --test_data_return_latency_dir=data/model_return_latency/testing_data
-```
-
-To run the dashboard, ensure that
-
-   A. `model_return_frequency.pickle`, `regression_model_return_latency.pickle` and `classification_model_return_latency.pickle` model files are already in the `models/` directory
-   
-   B. The engineered features with the targets for the test data is in parquet file format in `data/model_return_frequency/testing_data` (for the Return Frequency Model) and in `data/model_return_latency/testing_data` (for the Return Latency Model)
-
+ 
   - To run a specific part of the analysis- either for Model Return Frequency or Model Return Latency, you need to replace the 'dash' in the command below with an appropriate Makefile phony target (based on your use case):
 
 ```
